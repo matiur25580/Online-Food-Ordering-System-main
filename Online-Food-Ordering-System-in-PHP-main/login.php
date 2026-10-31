@@ -1,9 +1,5 @@
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+<!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,12 +21,8 @@
     }
     </style>
 
-    <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+    <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,12 +32,8 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+<!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
 <body>
     <header id="header" class="header-scroll top-header headrom">
@@ -73,12 +61,8 @@
 							}
 
 						?>
-                        <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+                        <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
                     </ul>
                 </div>
@@ -117,12 +101,8 @@ if(isset($_POST['submit']))
 }
 ?>
 
-        <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+        <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
         <div class="pen-title">
             < </div>
@@ -147,12 +127,8 @@ if(isset($_POST['submit']))
                 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
-                <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+                <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
 
                 <div class="container-fluid pt-3">
@@ -163,12 +139,8 @@ if(isset($_POST['submit']))
 
                 <?php include "include/footer.php" ?>
 
-                <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+                <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
 
 </body>

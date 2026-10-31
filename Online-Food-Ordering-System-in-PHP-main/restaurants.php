@@ -1,9 +1,5 @@
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+<!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -11,12 +7,8 @@ include("connection/connect.php");
 error_reporting(0);
 session_start();
 ?>
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+<!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
 <head>
     <meta charset="utf-8">
@@ -60,12 +52,8 @@ session_start();
 							}
 
 						?>
-                        <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+                        <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
                     </ul>
                 </div>
@@ -92,12 +80,8 @@ session_start();
                 </div>
             </div>
         </div>
-        <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+        <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
         <section class="restaurants-page">
             <div class="container">
@@ -146,12 +130,8 @@ session_start();
                     </div>
 
 
-                    <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+                    <!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
                 </div>
             </div>
@@ -169,11 +149,7 @@ session_start();
     <script src="js/headroom.js"></script>
     <script src="js/foodpicky.min.js"></script>
 </body>
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+<!--  Author Name: Matiur Rahaman.
+                        GitHub link: https://github.com/matiur25580
 
 </html>

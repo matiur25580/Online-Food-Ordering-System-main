@@ -1,10 +1,6 @@
                 <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
                 <!DOCTYPE html>
@@ -116,12 +112,8 @@ if(isset($_POST['submit']))
 
 ?>
                 <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -162,12 +154,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
 
                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -194,12 +182,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                                         </li>
 
                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -219,12 +203,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
                         <div class="left-sidebar">
                             <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -243,12 +223,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                                                 <li><a href="add_category.php">Add Category</a></li>
                                                 <li><a href="add_restaurant.php">Add Restaurant</a></li>
                                                 <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -269,12 +245,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
                             </div>
                             <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -286,12 +258,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                             </div>
 
                             <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -304,12 +272,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 									        echo $success; ?>
 
                                 <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -340,12 +304,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                                                             </div>
                                                         </div>
                                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -368,12 +328,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
                                                     </div>
                                                     <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -394,12 +350,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                                                             </div>
                                                         </div>
                                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -425,12 +377,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
                                                             </div>
                                                         </div>
                                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -459,12 +407,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
 
                                                         <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -519,12 +463,8 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
                     </div>
                     <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->
 
@@ -542,11 +482,7 @@ for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@
 
                 </html>
                 <!-- /*!
-* Author Name: MH RONY.
-* GigHub Link: https://github.com/dev-mhrony
-* Facebook Link:https://www.facebook.com/dev.mhrony
-* Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com
-* Visit My Website : developerrony.com
+* Author Name: Matiur Rahaman.
+* GitHub link: https://github.com/matiur25580
 
 */ -->

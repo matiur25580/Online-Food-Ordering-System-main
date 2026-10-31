@@ -1,11 +1,7 @@
 <?php
 /*!
- *  Author Name: MH RONY.
- *  GigHub Link: https://github.com/dev-mhrony
- *  Facebook Link:https://www.facebook.com/dev.mhrony
- *  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-    for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
- *  Visit My Website : developerrony.com 
+ *  Author Name: Matiur Rahaman.
+ *  GitHub link: https://github.com/matiur25580
 
       */
 //main connection file for both admin & front end
@@ -21,12 +17,8 @@ if (!$db) {       //checking connection to DB
     die("Connection failed: " . mysqli_connect_error());
 }
 /*!
- *  Author Name: MH RONY.
- *  GigHub Link: https://github.com/dev-mhrony
- *  Facebook Link:https://www.facebook.com/dev.mhrony
- *  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-    for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
- *  Visit My Website : developerrony.com 
+ *  Author Name: Matiur Rahaman.
+ *  GitHub link: https://github.com/matiur25580
 
       */
 ?>
