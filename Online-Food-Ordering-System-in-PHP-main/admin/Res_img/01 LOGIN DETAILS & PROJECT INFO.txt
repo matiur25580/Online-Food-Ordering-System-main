@@ -1,8 +1,7 @@
-**Log on to https://github/dev-mhrony for more projects!***
 
 **Database Name: code_camp_bd_fos**
 
-**Developed by MH RONY**
+**Developed by Matiur Rahaman**
 
 **Recommended PHP Version 5.6, 7.4**
 
