@@ -1,45 +1,60 @@
-# Online-Food-Ordering-System-in-PHP
+# Online Food Ordering System - Final Year Team Project
 
-Online Food Ordering System in PHP
+**Institute:** Bengal Institute of Technology, Kolkata (MAKAUT)
+**Department:** CSE | **Batch:** 2019-2023
+**Team Size:** 5 Members | **Duration:** 3 Months
+**Project Type:** Academic Final Year Project
+
+### Team Members
+- **Team Lead:** Md Rony - Backend architecture, database design
+- **Frontend Developer (Home + Menu):** Matiur Rahaman - Home page UI, Menu listing UI, responsive design
+- **Members:** Pradip, Rabiul, Samaun - Restaurant management, order flow, testing
+
+### My Contribution - Matiur Rahaman
+- Home page complete frontend - hero "Order Delivery & Take-Out" section
+- Menu page food listing grid with price, image cards
+- Fully responsive for mobile / tablet / laptop
+- Food preview section styling, navigation, footer
+
+### Project Overview
+Full-featured Online Food Ordering System in PHP & MySQL. Users can browse restaurants, view menus, create accounts, place orders and track delivery. Admin panel manages dashboard, users, restaurants, categories, menus and orders.
+
+### Tech Stack
+- Frontend: HTML5, CSS3, JavaScript, Bootstrap
+- Backend: Core PHP
+- Database: MySQL (code_camp_bd_fos)
+- Server: XAMPP / Laragon, phpMyAdmin
 
 ### Available Features:
-
-<li> Online Food Preview
-<li> User Account Create
-<li> Food Order 
-<li> Food Order Manage
-<li> Admin Panel
-<li> Deshbord
-<li> User Management
-<li> Resturent Add
-<li> Resturent Management
-<li> Resturent Category Add
-<li> Catagory Management
-<li> Menus
-<li> Order
-<li> Order Management
-<li> Order and Delivary Management
-<li> Etc.
+- Online Food Preview
+- User Account Create
+- Food Order
+- Food Order Manage
+- Admin Panel
+- Dashboard
+- User Management
+- Restaurant Add
+- Restaurant Management
+- Restaurant Category Add
+- Category Management
+- Menus
+- Order
+- Order Management
+- Order and Delivery Management
 
 ### Instructions: How to Run?
+1. After you finish downloading the project, unzip the project file and head over to your XAMPP/Laragon directory.
+2. There you'll find a folder named "htdocs/www".
+3. Inside the "htdocs" folder, paste the project folder (not the .zip one, but the extracted one).
+4. Open your favorite browser; we recommend using Google Chrome or Mozilla Firefox.
+5. Then, go to the URL "http://localhost/phpmyadmin".
+6. Create a Database "code_camp_bd_fos".
+7. Click on the "Import" tab and choose the database file (.sql) which is provided under the folder naming "DATABASE FILE".
+8. After setting up all these, go to the URL "http://localhost/[ PROJECT_FOLDER_NAME ]/"
+9. All the login details are provided inside the project folder, check that out and enter them in order to use it.
 
-1.  After you finish downloading the project, unzip the project file and head over to your XAMPP/Laragon directory. <br/>
-2.  There you’ll find a folder named “htdocs/www”. <br/>
-3.  Inside the “htdocs” folder, paste the project folder (not the .zip one, but the extracted one). <br/>
-4.  Open your favorite browser; we recommend using Google Chrome or Mozilla Firefox. <br/>
-5.  Then, go to the URL “http://localhost/phpmyadmin“. <br/>
-6.  Create a Database "code_camp_bd_fos". <br/>
-7.  Click on the “Import” tab and choose the database file (.sql) which is provided under the folder naming “DATABASE FILE”. <br/>
-8.  After setting up all these, go to the URL “http://localhost/[ PROJECT_FOLDER_NAME ]/“ <br/>
-9.  All the login details are provided inside the project folder, check that out and enter them in order to use it. <br/>
-
-### Admin Login Info Details
-
-Email : ccbd <br/> Password: Watch This Youtube <a href = "https://www.youtube.com/watch?v=cQNX1PgWqL4&lc=UgxOVgDFfPgSoNiGlzJ4AaABAg" target="_blank"> Video </a> <br/> Subcribe my You tube Channel \***\* <a href="https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw" target="_blank">Subscribe</a> \*\***
-
-Subcribe my You tube Channel \***\* <a href="https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw" target="_blank">Subscribe</a> \*\***
-
-Author : MH RONY <br/> Website Link: https://developerrony.com <br /> GitHub Link: https://github.com/dev-mhrony <br /> Youtube Video Link:https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw <br /> Youtube Channel Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
+### Admin Login Info
+Check login details inside project folder.
 
 ## Frontend Preview
 
