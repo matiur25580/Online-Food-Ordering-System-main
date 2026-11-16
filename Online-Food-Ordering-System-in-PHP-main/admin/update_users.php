@@ -63,8 +63,14 @@ if(isset($_POST['submit'] ))
 	else{
        
 	
-	$mql = "update users set username='$_POST[uname]', f_name='$_POST[fname]', l_name='$_POST[lname]',email='$_POST[email]',phone='$_POST[phone]',password='".md5($_POST['password'])."' where u_id='$_GET[user_upd]' ";
-	mysqli_query($db, $mql);
+	$newPasswordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+	$update = mysqli_prepare($db, "UPDATE users SET username = ?, f_name = ?, l_name = ?, email = ?, phone = ?, password = ? WHERE u_id = ?");
+	if ($update) {
+		$userId = (string) ($_GET['user_upd'] ?? '');
+		mysqli_stmt_bind_param($update, "sssssss", $_POST['uname'], $_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['phone'], $newPasswordHash, $userId);
+		mysqli_stmt_execute($update);
+		mysqli_stmt_close($update);
+	}
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>User Updated!</strong></div>';
