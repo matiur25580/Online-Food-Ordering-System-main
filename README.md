@@ -64,35 +64,105 @@ This system was built as a final year academic project to understand full web ap
 ### Admin Login Info
 Check login details inside project folder.
 
-## Frontend Preview
+## Product Gallery
 
-![screencapture-localhost-OnlineFood-PHP-2023-02-22-20_44_35](https://user-images.githubusercontent.com/78216965/220661697-31902983-6bcc-4804-864c-37bca11a9cb1.png)
+A vertical gallery of the existing project previews. The first five images show the customer-facing experience; the remaining images are administration-side previews from the original team project.
 
-![screencapture-localhost-OnlineFood-PHP-restaurants-php-2023-02-22-20_44_47](https://user-images.githubusercontent.com/78216965/220664145-7817eed5-e56a-464a-b3aa-c81e837dd943.png)
+### 01 · Homepage and food discovery
 
-![screencapture-localhost-OnlineFood-PHP-login-php-2023-02-22-20_44_59](https://user-images.githubusercontent.com/78216965/220664347-8cbb77a8-8c64-4b4d-9f86-909286401a9e.png)
+![Homepage and food discovery — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220661697-31902983-6bcc-4804-864c-37bca11a9cb1.png)
 
-![screencapture-localhost-OnlineFood-PHP-registration-php-2023-02-22-20_45_09](https://user-images.githubusercontent.com/78216965/220664419-cc79fae6-e834-426f-9950-93cd3ec77a26.png)
+*The landing experience introduces the ordering service and guides visitors toward restaurants and menus.*
 
-![screencapture-localhost-OnlineFood-PHP-your-orders-php-2023-02-22-20_46_27](https://user-images.githubusercontent.com/78216965/220664502-693d905d-928e-4867-ac70-587f424c5d85.png)
+---
 
-## Backend Preview
+### 02 · Restaurant listing
 
-![01](https://user-images.githubusercontent.com/78216965/220664885-02d9d951-6249-4fdf-bf14-4c9c6c060725.png)
+![Restaurant listing — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664145-7817eed5-e56a-464a-b3aa-c81e837dd943.png)
 
-![02](https://user-images.githubusercontent.com/78216965/220664929-6fcaee2a-a3ad-44cd-8e23-0fd7dd66a990.png)
+*Restaurant browsing gives customers a starting point for exploring available food options.*
 
-![03](https://user-images.githubusercontent.com/78216965/220664963-41a8fd30-b6b9-4bb6-8849-51a4983d6c35.png)
+---
 
-![04](https://user-images.githubusercontent.com/78216965/220665094-cf456075-395b-4f1c-97f9-19435e6820bb.png)
+### 03 · Customer login
 
-![05](https://user-images.githubusercontent.com/78216965/220665181-3d522f74-7b54-4953-9149-5fe0168fc321.png)
+![Customer login — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664347-8cbb77a8-8c64-4b4d-9f86-909286401a9e.png)
 
-![06](https://user-images.githubusercontent.com/78216965/220665234-0156a808-4dc7-47b2-b48e-499ea64912d3.png)
+*The sign-in screen provides the customer entry point to account-based ordering.*
 
-![07](https://user-images.githubusercontent.com/78216965/220665318-818c7bff-ad34-4d6f-95ce-36eb34565047.png)
+---
 
-![08](https://user-images.githubusercontent.com/78216965/220665496-113b0bc2-009d-41a7-a70c-46e4fefc2682.png)
+### 04 · Customer registration
+
+![Customer registration — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664419-cc79fae6-e834-426f-9950-93cd3ec77a26.png)
+
+*The registration screen supports creating a customer account.*
+
+---
+
+### 05 · Order history
+
+![Order history — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664502-693d905d-928e-4867-ac70-587f424c5d85.png)
+
+*Customers can review their previously placed orders.*
+
+### 06 · Administration preview 01
+
+![Administration preview 01 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664885-02d9d951-6249-4fdf-bf14-4c9c6c060725.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 07 · Administration preview 02
+
+![Administration preview 02 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664929-6fcaee2a-a3ad-44cd-8e23-0fd7dd66a990.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 08 · Administration preview 03
+
+![Administration preview 03 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220664963-41a8fd30-b6b9-4bb6-8849-51a4983d6c35.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 09 · Administration preview 04
+
+![Administration preview 04 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220665094-cf456075-395b-4f1c-97f9-19435b4fdf14.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 10 · Administration preview 05
+
+![Administration preview 05 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220665181-3d522f74-7b54-4953-9149-5fe0168fc321.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 11 · Administration preview 06
+
+![Administration preview 06 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220665234-0156a808-4dc7-47b2-b48e-499ea64912d3.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+---
+
+### 12 · Administration preview 07
+
+![Administration preview 07 — Online Food Ordering System](https://user-images.githubusercontent.com/78216965/220665318-818c7bff-ad34-4d6f-95ce-36eb34565047.png)
+
+*An additional view of the administration interface and its management workflow.*
+
+> **Contribution note:** This was a team project. My documented contribution was the frontend home and menu UI; the administration-side previews are included to give context about the wider team-built system.
+
+---
 
 ---
 
