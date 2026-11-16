@@ -75,29 +75,39 @@
 include("connection/connect.php"); 
 error_reporting(0); 
 session_start(); 
-if(isset($_POST['submit']))  
-{
-	$username = $_POST['username'];  
-	$password = $_POST['password'];
-	
-	if(!empty($_POST["submit"]))   
-     {
-	$loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; //selecting matching records
-	$result=mysqli_query($db, $loginquery); //executing
-	$row=mysqli_fetch_array($result);
-	
-	                        if(is_array($row)) 
-								{
-                                    	$_SESSION["user_id"] = $row['u_id']; 
-										 header("refresh:1;url=index.php"); 
-	                            } 
-							else
-							    {
-                                      	$message = "Invalid Username or Password!"; 
-                                }
-	 }
-	
-	
+if (isset($_POST['submit'])) {
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $stmt = mysqli_prepare($db, "SELECT u_id, password FROM users WHERE username = ? LIMIT 1");
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $row = $result ? mysqli_fetch_assoc($result) : null;
+        mysqli_stmt_close($stmt);
+        $valid = false;
+        if ($row) {
+            $stored = (string) $row['password'];
+            $valid = password_verify($password, $stored);
+            if (!$valid && hash_equals(strtolower($stored), md5($password))) {
+                $valid = true;
+                $newHash = password_hash($password, PASSWORD_DEFAULT);
+                $upgrade = mysqli_prepare($db, "UPDATE users SET password = ? WHERE u_id = ?");
+                if ($upgrade) {
+                    mysqli_stmt_bind_param($upgrade, "si", $newHash, $row['u_id']);
+                    mysqli_stmt_execute($upgrade);
+                    mysqli_stmt_close($upgrade);
+                }
+            }
+        }
+        if ($valid) {
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $row['u_id'];
+            header("Location: index.php");
+            exit;
+        }
+    }
+    $message = "Invalid Username or Password!";
 }
 ?>
 
