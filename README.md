@@ -1,13 +1,17 @@
 # Online Food Ordering System - Final Year Team Project
 
-**Institute:** Bengal Institute of Technology, Kolkata (MAKAUT)
-**Department:** CSE | **Batch:** 2019-2023
-**Team Size:** 5 Members | **Duration:** 3 Months
+**Institute:** Bengal Institute of Technology, Kolkata (MAKAUT)  
+**Department:** CSE | **Batch:** 2019-2023  
+**Team Size:** 5 Members | **Duration:** 3 Months  
 **Project Type:** Academic Final Year Project
+
+> **Note:** This was a **team project**. I was responsible for the **Frontend** part only. Backend, database design and order flow were done by other team members. This repository is kept as my academic record.
+
+---
 
 ### Team Members
 - **Team Lead:** Md Rony - Backend architecture, database design
-- **Frontend Developer (Home + Menu):** Matiur Rahaman - Home page UI, Menu listing UI, responsive design
+- **Frontend Developer (Home + Menu):** Matiur Rahaman - Home page UI, Menu listing UI, responsive design (My role was Frontend only)
 - **Members:** Pradip, Rabiul, Samaun - Restaurant management, order flow, testing
 
 ### My Contribution - Matiur Rahaman
@@ -16,8 +20,12 @@
 - Fully responsive for mobile / tablet / laptop
 - Food preview section styling, navigation, footer
 
+I did **NOT** build the full backend alone. My work was focused on Frontend UI as mentioned above.
+
 ### Project Overview
 Full-featured Online Food Ordering System in PHP & MySQL. Users can browse restaurants, view menus, create accounts, place orders and track delivery. Admin panel manages dashboard, users, restaurants, categories, menus and orders.
+
+This system was built as a final year academic project to understand full web application flow - from user browsing to admin management.
 
 ### Tech Stack
 - Frontend: HTML5, CSS3, JavaScript, Bootstrap
@@ -46,7 +54,7 @@ Full-featured Online Food Ordering System in PHP & MySQL. Users can browse resta
 1. After you finish downloading the project, unzip the project file and head over to your XAMPP/Laragon directory.
 2. There you'll find a folder named "htdocs/www".
 3. Inside the "htdocs" folder, paste the project folder (not the .zip one, but the extracted one).
-4. Open your favorite browser; we recommend using Google Chrome or Mozilla Firefox.
+4. Open your favorite browser; we recommend using Google Chrome or 【entity-Mozilla Firefox¦canonical_name=Mozilla Firefox】.
 5. Then, go to the URL "http://localhost/phpmyadmin".
 6. Create a Database "code_camp_bd_fos".
 7. Click on the "Import" tab and choose the database file (.sql) which is provided under the folder naming "DATABASE FILE".
@@ -85,3 +93,20 @@ Check login details inside project folder.
 ![07](https://user-images.githubusercontent.com/78216965/220665318-818c7bff-ad34-4d6f-95ce-36eb34565047.png)
 
 ![08](https://user-images.githubusercontent.com/78216965/220665496-113b0bc2-009d-41a7-a70c-46e4fefc2682.png)
+
+---
+
+## What I Learned From This Project
+
+- How to work in a team of 5 members on a single project
+- How to divide work - Frontend, Backend, Database, Testing
+- How to make responsive UI with HTML, CSS, Bootstrap
+- How Frontend connects with Backend and Database in a real project
+- How to use GitHub for team collaboration
+
+## Author
+
+**Matiur Rahaman** - Frontend Contributor (Home + Menu)  
+B.Tech, Computer Science & Engineering  
+Bengal Institute of Technology, Kolkata (MAKAUT) - 2023  
+GitHub: https://github.com/matiur25580
