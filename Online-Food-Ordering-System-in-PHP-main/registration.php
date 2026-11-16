@@ -7,64 +7,58 @@
 session_start(); 
 error_reporting(0); 
 include("connection/connect.php"); 
-if(isset($_POST['submit'] )) 
-{
-     if(empty($_POST['firstname']) || 
-   	    empty($_POST['lastname'])|| 
-		empty($_POST['email']) ||  
-		empty($_POST['phone'])||
-		empty($_POST['password'])||
-		empty($_POST['cpassword']) ||
-		empty($_POST['cpassword']))
-		{
-			$message = "All fields must be Required!";
-		}
-	else
-	{
-	
-	$check_username= mysqli_query($db, "SELECT username FROM users where username = '".$_POST['username']."' ");
-	$check_email = mysqli_query($db, "SELECT email FROM users where email = '".$_POST['email']."' ");
-		
+if (isset($_POST['submit'])) {
+    $username = trim($_POST['username'] ?? '');
+    $firstName = trim($_POST['firstname'] ?? '');
+    $lastName = trim($_POST['lastname'] ?? '');
+    $email = strtolower(trim($_POST['email'] ?? ''));
+    $phone = trim($_POST['phone'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['cpassword'] ?? '';
+    $address = trim($_POST['address'] ?? '');
 
-	
-	if($_POST['password'] != $_POST['cpassword']){  
-       	
-          echo "<script>alert('Password not match');</script>"; 
-    }
-	elseif(strlen($_POST['password']) < 6)  
-	{
-      echo "<script>alert('Password Must be >=6');</script>"; 
-	}
-	elseif(strlen($_POST['phone']) < 10)  
-	{
-      echo "<script>alert('Invalid phone number!');</script>"; 
-	}
+    if ($username === '' || $firstName === '' || $lastName === '' || $email === '' || $phone === '' || $password === '' || $confirmPassword === '') {
+        $message = "All fields must be Required!";
+    } elseif ($password !== $confirmPassword) {
+        echo "<script>alert('Password not match');</script>";
+    } elseif (strlen($password) < 8) {
+        echo "<script>alert('Password must be at least 8 characters');</script>";
+    } elseif (strlen($phone) < 10) {
+        echo "<script>alert('Invalid phone number!');</script>";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email address please type a valid email!');</script>";
+    } else {
+        $check = mysqli_prepare($db, "SELECT username, email FROM users WHERE username = ? OR email = ? LIMIT 1");
+        if ($check) {
+            mysqli_stmt_bind_param($check, "ss", $username, $email);
+            mysqli_stmt_execute($check);
+            $result = mysqli_stmt_get_result($check);
+            $existing = $result ? mysqli_fetch_assoc($result) : null;
+            mysqli_stmt_close($check);
 
-    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-    {
-          echo "<script>alert('Invalid email address please type a valid email!');</script>"; 
+            if ($existing && strcasecmp($existing['username'], $username) === 0) {
+                echo "<script>alert('Username Already exists!');</script>";
+            } elseif ($existing && strcasecmp($existing['email'], $email) === 0) {
+                echo "<script>alert('Email Already exists!');</script>";
+            } else {
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                $insert = mysqli_prepare($db, "INSERT INTO users (username, f_name, l_name, email, phone, password, address) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                if ($insert) {
+                    mysqli_stmt_bind_param($insert, "sssssss", $username, $firstName, $lastName, $email, $phone, $passwordHash, $address);
+                    if (mysqli_stmt_execute($insert)) {
+                        mysqli_stmt_close($insert);
+                        header("Location: login.php");
+                        exit;
+                    }
+                    mysqli_stmt_close($insert);
+                }
+                $message = "Registration could not be completed. Please try again.";
+            }
+        } else {
+            $message = "Registration could not be completed. Please try again.";
+        }
     }
-	elseif(mysqli_num_rows($check_username) > 0) 
-     {
-       echo "<script>alert('Username Already exists!');</script>"; 
-     }
-	elseif(mysqli_num_rows($check_email) > 0) 
-     {
-       echo "<script>alert('Email Already exists!');</script>"; 
-     }
-	else{
-       
-	 
-	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
-	mysqli_query($db, $mql);
-	
-		 header("refresh:0.1;url=login.php");
-    }
-	}
-
 }
-
-
 ?>
 <!--  Author Name: Matiur Rahaman.
                         GitHub link: https://github.com/matiur25580
