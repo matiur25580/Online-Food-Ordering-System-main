@@ -1,24 +1,31 @@
 <?php
-/*!
- *  Author Name: Matiur Rahaman.
- *  GitHub link: https://github.com/matiur25580
+/*
+ * Shared MySQL connection for the customer and administration areas.
+ *
+ * Local XAMPP defaults are retained for this legacy academic project.
+ * Set DB_HOST, DB_USER, DB_PASSWORD and DB_NAME in the PHP process environment
+ * when deploying; never use the local root/blank-password defaults in production.
+ */
 
-      */
-//main connection file for both admin & front end
-$servername = "localhost"; //server
-$username = "root"; //username
-$password = ""; //password
-$dbname = "code_camp_bd_fos";  //database
+$servername = getenv('DB_HOST') ?: '127.0.0.1';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD');
+$password = $password === false ? '' : $password;
+$dbname = getenv('DB_NAME') ?: 'code_camp_bd_fos';
 
-// Create connection
-$db = mysqli_connect($servername, $username, $password, $dbname); // connecting 
-// Check connection
-if (!$db) {       //checking connection to DB	
-    die("Connection failed: " . mysqli_connect_error());
+// Keep database diagnostics in server logs, not in the browser response.
+mysqli_report(MYSQLI_REPORT_OFF);
+$db = @mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$db) {
+    error_log('Food ordering database connection failed: ' . mysqli_connect_error());
+    http_response_code(500);
+    exit('The application is temporarily unable to connect to its database.');
 }
-/*!
- *  Author Name: Matiur Rahaman.
- *  GitHub link: https://github.com/matiur25580
 
-      */
-?>
+if (!mysqli_set_charset($db, 'utf8mb4')) {
+    error_log('Food ordering database charset setup failed: ' . mysqli_error($db));
+    mysqli_close($db);
+    http_response_code(500);
+    exit('The application could not initialize its database connection.');
+}
