@@ -33,6 +33,17 @@ This system was built as a final year academic project to understand full web ap
 - Database: MySQL (code_camp_bd_fos)
 - Server: XAMPP / Laragon, phpMyAdmin
 
+### Database configuration and security
+
+The shared connection is in `Online-Food-Ordering-System-in-PHP-main/connection/connect.php`.
+
+- For the original local XAMPP setup, the project retains the database name `code_camp_bd_fos` and common local MySQL defaults (`root` with an empty password).
+- The connection accepts `DB_HOST`, `DB_USER`, `DB_PASSWORD` and `DB_NAME` from the PHP process environment. Configure these in Apache/PHP before starting the server; this project does not load a `.env` file automatically.
+- Use a dedicated least-privilege MySQL account with a strong password outside local development. Do not deploy with the XAMPP root/blank-password defaults or commit credentials.
+- Database connection diagnostics are written to the server error log; browser responses receive a generic message.
+
+This is a legacy academic PHP/MySQL team project, not a verified production deployment. The documented personal contribution is the frontend home and menu UI.
+
 ### Available Features:
 - Online Food Preview
 - User Account Create
