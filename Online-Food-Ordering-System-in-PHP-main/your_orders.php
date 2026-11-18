@@ -7,6 +7,11 @@ include("connection/connect.php");
 error_reporting(0);
 session_start();
 
+// A per-session token protects the order-cancellation form from cross-site requests.
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 if(empty($_SESSION['user_id']))  
 {
 	header('location:login.php');
@@ -226,20 +231,23 @@ td, th {
 
                                         <?php 
 				
-						$query_res= mysqli_query($db,"select * from users_orders where u_id='".$_SESSION['user_id']."'");
-												if(!mysqli_num_rows($query_res) > 0 )
-														{
-															echo '<td colspan="6"><center>You have No orders Placed yet. </center></td>';
-														}
-													else
-														{			      
-										  
-										  while($row=mysqli_fetch_array($query_res))
-										  {
+                        $query = mysqli_prepare($db, "SELECT * FROM users_orders WHERE u_id = ? ORDER BY date DESC");
+                        if (!$query) {
+                            error_log('Unable to prepare customer order history query: ' . mysqli_error($db));
+                            echo '<td colspan="6"><center>Unable to load your orders right now.</center></td>';
+                        } else {
+                            $userId = (int) $_SESSION['user_id'];
+                            mysqli_stmt_bind_param($query, "i", $userId);
+                            mysqli_stmt_execute($query);
+                            $query_res = mysqli_stmt_get_result($query);
+                            if (!$query_res || mysqli_num_rows($query_res) === 0) {
+                                echo '<td colspan="6"><center>You have no orders placed yet.</center></td>';
+                            } else {
+                                while ($row = mysqli_fetch_assoc($query_res)) {
 						
 							?>
                                         <tr>
-                                            <td data-column="Item"> <?php echo $row['title']; ?></td>
+                                            <td data-column="Item"> <?php echo htmlspecialchars((string) $row['title'], ENT_QUOTES, 'UTF-8'); ?></td>
                                             <td data-column="Quantity"> <?php echo $row['quantity']; ?></td>
                                             <td data-column="price">$<?php echo $row['price']; ?></td>
                                             <td data-column="status">
@@ -278,14 +286,21 @@ td, th {
 
 
                                             </td>
-                                            <td data-column="Date"> <?php echo $row['date']; ?></td>
-                                            <td data-column="Action"> <a href="delete_orders.php?order_del=<?php echo $row['o_id'];?>" onclick="return confirm('Are you sure you want to cancel your order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
+                                            <td data-column="Date"> <?php echo htmlspecialchars((string) $row['date'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                            <td data-column="Action">
+                                                <form action="delete_orders.php" method="post" onsubmit="return confirm('Are you sure you want to cancel your order?');">
+                                                    <input type="hidden" name="order_del" value="<?php echo (int) $row['o_id']; ?>">
+                                                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
+                                                    <button type="submit" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10" aria-label="Cancel order">
+                                                        <i class="fa fa-trash-o" style="font-size:16px" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
                                             </td>
 
                                         </tr>
 
 
-                                        <?php }} ?>
+                                        <?php } mysqli_stmt_close($query); } ?>
 
 
 
