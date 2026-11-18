@@ -41,6 +41,7 @@ The shared connection is in `Online-Food-Ordering-System-in-PHP-main/connection/
 - The connection accepts `DB_HOST`, `DB_USER`, `DB_PASSWORD` and `DB_NAME` from the PHP process environment. Configure these in Apache/PHP before starting the server; this project does not load a `.env` file automatically.
 - Use a dedicated least-privilege MySQL account with a strong password outside local development. Do not deploy with the XAMPP root/blank-password defaults or commit credentials.
 - Database connection diagnostics are written to the server error log; browser responses receive a generic message.
+- Customer order history uses a parameterized query, and order cancellation requires an authenticated POST with a session CSRF token and an order-ownership check.
 
 This is a legacy academic PHP/MySQL team project, not a verified production deployment. The documented personal contribution is the frontend home and menu UI.
 
