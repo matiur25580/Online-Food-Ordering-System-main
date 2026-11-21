@@ -1,32 +1,64 @@
+<?php require_once __DIR__ . '/auth_guard.php'; ?>
                 <!-- /*!
 * Author Name: Matiur Rahaman.
 * GitHub link: https://github.com/matiur25580
 
 */ -->
                 <?php
+require_once __DIR__ . '/auth_guard.php';
+require_once __DIR__ . '/../connection/connect.php';
 
-include("../connection/connect.php");
-error_reporting(0);
-session_start();
-if(strlen($_SESSION['user_id'])==0)
-  { 
-header('location:../login.php');
+$formId = filter_input(INPUT_GET, 'form_id', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+if (!$formId) {
+    http_response_code(400);
+    exit('Invalid order identifier.');
 }
-else
-{
-  if(isset($_POST['update']))
-  {
-$form_id=$_GET['form_id'];
-$status=$_POST['status'];
-$remark=$_POST['remark'];
-$query=mysqli_query($db,"insert into remark(frm_id,status,remark) values('$form_id','$status','$remark')");
-$sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
 
-echo "<script>alert('Form Details Updated Successfully');</script>";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
+    admin_require_csrf_post();
+    $status = $_POST['status'] ?? '';
+    $remark = trim($_POST['remark'] ?? '');
+    $allowedStatuses = ['in process', 'closed', 'rejected'];
 
-  }
+    if (!in_array($status, $allowedStatuses, true) || $remark === '' || mb_strlen($remark) > 5000) {
+        http_response_code(422);
+        exit('Please provide a valid status and a message of at most 5000 characters.');
+    }
 
- ?>
+    mysqli_begin_transaction($db);
+    try {
+        $orderCheck = mysqli_prepare($db, 'SELECT o_id FROM users_orders WHERE o_id = ? LIMIT 1');
+        if (!$orderCheck) throw new RuntimeException('Unable to prepare order lookup.');
+        mysqli_stmt_bind_param($orderCheck, 'i', $formId);
+        mysqli_stmt_execute($orderCheck);
+        $orderResult = mysqli_stmt_get_result($orderCheck);
+        $orderExists = $orderResult && mysqli_fetch_assoc($orderResult);
+        mysqli_stmt_close($orderCheck);
+        if (!$orderExists) throw new RuntimeException('Order not found.');
+
+        $remarkStmt = mysqli_prepare($db, 'INSERT INTO remark (frm_id, status, remark) VALUES (?, ?, ?)');
+        if (!$remarkStmt) throw new RuntimeException('Unable to prepare order remark.');
+        mysqli_stmt_bind_param($remarkStmt, 'iss', $formId, $status, $remark);
+        if (!mysqli_stmt_execute($remarkStmt)) throw new RuntimeException('Unable to save order remark.');
+        mysqli_stmt_close($remarkStmt);
+
+        $updateStmt = mysqli_prepare($db, 'UPDATE users_orders SET status = ? WHERE o_id = ?');
+        if (!$updateStmt) throw new RuntimeException('Unable to prepare order update.');
+        mysqli_stmt_bind_param($updateStmt, 'si', $status, $formId);
+        if (!mysqli_stmt_execute($updateStmt)) throw new RuntimeException('Unable to update order status.');
+        mysqli_stmt_close($updateStmt);
+
+        mysqli_commit($db);
+        header('Location: all_orders.php', true, 303);
+        exit;
+    } catch (Throwable $error) {
+        mysqli_rollback($db);
+        error_log('Admin order update failed: ' . $error->getMessage());
+        http_response_code($error->getMessage() === 'Order not found.' ? 404 : 500);
+        exit('Unable to update this order. Please try again.');
+    }
+}
+?>
                 <!-- /*!
  * Author Name: Matiur Rahaman.
  * GitHub link: https://github.com/matiur25580
@@ -141,7 +173,7 @@ function f3() {
 
 
                     <div style="margin-left:50px;">
-                        <form name="updateticket" id="updatecomplaint" method="post">
+                        <form name="updateticket" id="updatecomplaint" method="post"><?php echo admin_csrf_input(); ?>
 
 
 
@@ -149,7 +181,7 @@ function f3() {
                             <table border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td><b>Form Number</b></td>
-                                    <td><?php echo htmlentities($_GET['form_id']); ?></td>
+                                    <td><?php echo (int) $formId; ?></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -218,5 +250,3 @@ function f3() {
 */ -->
 
                 </html>
-
-                <?php } ?>

@@ -1,19 +1,27 @@
-                <!-- /*!
-* Author Name: Matiur Rahaman.
-* GitHub link: https://github.com/matiur25580
+<?php
+require_once __DIR__ . '/auth_guard.php';
+require_once __DIR__ . '/../connection/connect.php';
 
-*/ -->
-                <?php
-include("../connection/connect.php");
-error_reporting(0);
-session_start();
+admin_require_csrf_post();
+$id = filter_input(INPUT_POST, 'cat_del', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+if (!$id) {
+    http_response_code(400);
+    exit('Invalid record identifier.');
+}
 
-mysqli_query($db,"DELETE FROM res_category WHERE c_id = '".$_GET['cat_del']."'");
-header("location:add_category.php");  
-
-?>
-                <!-- /*!
-* Author Name: Matiur Rahaman.
-* GitHub link: https://github.com/matiur25580
-
-*/ -->
+$stmt = mysqli_prepare($db, 'DELETE FROM res_category WHERE c_id = ?');
+if (!$stmt) {
+    error_log('Admin delete prepare failed: ' . mysqli_error($db));
+    http_response_code(500);
+    exit('Unable to complete the request.');
+}
+mysqli_stmt_bind_param($stmt, 'i', $id);
+if (!mysqli_stmt_execute($stmt)) {
+    error_log('Admin delete execution failed: ' . mysqli_stmt_error($stmt));
+    mysqli_stmt_close($stmt);
+    http_response_code(500);
+    exit('Unable to complete the request.');
+}
+mysqli_stmt_close($stmt);
+header('Location: add_category.php', true, 303);
+exit;

@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/auth_guard.php'; ?>
                 <!-- /*!
 * Author Name: Matiur Rahaman.
 * GitHub link: https://github.com/matiur25580
@@ -248,7 +249,7 @@ session_start();
 																							echo '	<td>'.$rows['date'].'</td>';
 																							?>
                                                             <td>
-                                                                <a href="delete_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
+                                                                <form method="post" action="delete_orders.php" onsubmit="return confirm('Delete this order?');" style="display:inline"><input type="hidden" name="order_del" value="<?php echo (int) $rows['o_id']; ?>"><?php echo admin_csrf_input(); ?><button type="submit" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10" aria-label="Delete order"><i class="fa fa-trash-o" style="font-size:16px"></i></button></form>
                                                                 <?php
 																								echo '<a href="view_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
 																									</td>

@@ -300,7 +300,7 @@ td, th {
                                         </tr>
 
 
-                                        <?php } mysqli_stmt_close($query); } ?>
+                                        <?php } } mysqli_stmt_close($query); } ?>
 
 
 
