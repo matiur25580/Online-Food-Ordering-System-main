@@ -169,7 +169,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                         GitHub link: https://github.com/matiur25580
 
             <div class="container m-t-30">
-                <form action="" method="post">\n                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION["csrf_token"], ENT_QUOTES, "UTF-8"); ?>">
+                <form action="" method="post">
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION["csrf_token"], ENT_QUOTES, "UTF-8"); ?>">
                     <div class="widget clearfix">
 
                         <div class="widget-body">
