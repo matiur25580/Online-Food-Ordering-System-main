@@ -9,12 +9,10 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-if(strlen($_SESSION['user_id'])==0)
-  { 
-header('location:../login.php');
-}
-else
-{
+if (empty($_SESSION['adm_id'])) {
+    header('Location: index.php');
+    exit;
+} else {
   if(isset($_POST['update']))
   {
 $form_id=$_GET['form_id'];
