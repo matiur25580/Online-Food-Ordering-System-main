@@ -250,5 +250,3 @@ function f3() {
 */ -->
 
                 </html>
-
-                <?php } ?>
