@@ -217,7 +217,7 @@ session_start();
 																								<td>'.$rows['phone'].'</td>
 																								<td>'.$rows['address'].'</td>																								
 																								<td>'.$rows['date'].'</td>
-																									 <td><a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+																									 <td><form method="post" action="delete_users.php" onsubmit="return confirm(\'Delete this user?\');" style="display:inline"><input type="hidden" name="user_del" value="'.$rows['u_id'].'">'.admin_csrf_input().'<button type="submit" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10" aria-label="Delete user"><i class="fa fa-trash-o" style="font-size:16px"></i></button></form> 
 																									 <a href="update_users.php?user_upd='.$rows['u_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
 																									</td></tr>';
 																		}	
