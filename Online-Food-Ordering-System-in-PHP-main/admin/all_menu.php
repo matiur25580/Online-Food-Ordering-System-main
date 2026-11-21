@@ -230,7 +230,7 @@ session_start();
 																								</div></td>
 																								
 																							
-																									 <td><a href="delete_menu.php?menu_del='.$rows['d_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+																									 <td><form method="post" action="delete_menu.php" onsubmit="return confirm(\'Delete this menu item?\');" style="display:inline"><input type="hidden" name="menu_del" value="'.$rows['d_id'].'">'.admin_csrf_input().'<button type="submit" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10" aria-label="Delete menu item"><i class="fa fa-trash-o" style="font-size:16px"></i></button></form> 
 																									 <a href="update_menu.php?menu_upd='.$rows['d_id'].'" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
 																									</td></tr>';
 																					 
