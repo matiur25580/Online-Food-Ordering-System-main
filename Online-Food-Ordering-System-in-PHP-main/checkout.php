@@ -251,9 +251,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
 </html>
 <!--  Author Name: Matiur Rahaman.
-                        GitHub link: https://github.com/matiur25580
-<?php
-}
-?>
-<!--  Author Name: Matiur Rahaman.
 GitHub link: https://github.com/matiur25580
