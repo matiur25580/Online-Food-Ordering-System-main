@@ -2,53 +2,97 @@
 <html lang="en">
 <?php
 include("connection/connect.php");
-include_once 'product-action.php';
-error_reporting(0);
 session_start();
 
-
-function function_alert() { 
-      
-
-    echo "<script>alert('Thank you. Your Order has been placed!');</script>"; 
-    echo "<script>window.location.replace('your_orders.php');</script>"; 
-} 
-
-if(empty($_SESSION["user_id"]))
-{
-	header('location:login.php');
+if (empty($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit;
 }
-else{
 
-										  
-												foreach ($_SESSION["cart_item"] as $item)
-												{
-											
-												$item_total += ($item["price"]*$item["quantity"]);
-												
-													if($_POST['submit'])
-													{
-						
-													$SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
-						
-														mysqli_query($db,$SQL);
-														
-                                                        
-                                                        unset($_SESSION["cart_item"]);
-                                                        unset($item["title"]);
-                                                        unset($item["quantity"]);
-                                                        unset($item["price"]);
-														$success = "Thank you. Your order has been placed!";
+if (empty($_SESSION["csrf_token"])) {
+    $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+}
 
-                                                        function_alert();
+$item_total = 0;
+$cart = $_SESSION["cart_item"] ?? [];
 
-														
-														
-													}
-												}
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
+    $submittedToken = $_POST["csrf_token"] ?? "";
+    $sessionToken = $_SESSION["csrf_token"] ?? "";
+    if (!is_string($submittedToken) || !is_string($sessionToken) ||
+        $sessionToken === "" || !hash_equals($sessionToken, $submittedToken)) {
+        http_response_code(403);
+        exit("Invalid request token.");
+    }
+
+    if (!is_array($cart) || $cart === []) {
+        http_response_code(400);
+        exit("Your cart is empty.");
+    }
+
+    mysqli_begin_transaction($db);
+    $dishQuery = mysqli_prepare($db, "SELECT title, price FROM dishes WHERE d_id = ?");
+    $orderInsert = mysqli_prepare($db, "INSERT INTO users_orders (u_id, title, quantity, price) VALUES (?, ?, ?, ?)");
+    if (!$dishQuery || !$orderInsert) {
+        mysqli_rollback($db);
+        error_log("Unable to prepare checkout statements: " . mysqli_error($db));
+        http_response_code(500);
+        exit("Unable to place your order right now.");
+    }
+
+    $userId = (int) $_SESSION["user_id"];
+    $valid = true;
+    $total = 0.0;
+    foreach ($cart as $item) {
+        $dishId = filter_var($item["d_id"] ?? null, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1]]);
+        $quantity = filter_var($item["quantity"] ?? null, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 99]]);
+        if ($dishId === false || $quantity === false) {
+            $valid = false;
+            break;
+        }
+
+        mysqli_stmt_bind_param($dishQuery, "i", $dishId);
+        if (!mysqli_stmt_execute($dishQuery)) {
+            $valid = false;
+            break;
+        }
+        mysqli_stmt_bind_result($dishQuery, $dishTitle, $dishPrice);
+        if (!mysqli_stmt_fetch($dishQuery)) {
+            mysqli_stmt_free_result($dishQuery);
+            $valid = false;
+            break;
+        }
+        mysqli_stmt_free_result($dishQuery);
+
+        $price = (string) $dishPrice;
+        mysqli_stmt_bind_param($orderInsert, "isis", $userId, $dishTitle, $quantity, $price);
+        if (!mysqli_stmt_execute($orderInsert)) {
+            $valid = false;
+            break;
+        }
+        $total += (float) $price * $quantity;
+    }
+
+    mysqli_stmt_close($dishQuery);
+    mysqli_stmt_close($orderInsert);
+    if (!$valid) {
+        mysqli_rollback($db);
+        http_response_code(400);
+        exit("Your cart contains an invalid or unavailable item. Please review it and try again.");
+    }
+
+    if (!mysqli_commit($db)) {
+        mysqli_rollback($db);
+        error_log("Checkout transaction commit failed: " . mysqli_error($db));
+        http_response_code(500);
+        exit("Unable to place your order right now.");
+    }
+
+    unset($_SESSION["cart_item"]);
+    header("Location: your_orders.php");
+    exit;
+}
 ?>
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -126,6 +170,7 @@ else{
 
             <div class="container m-t-30">
                 <form action="" method="post">
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION["csrf_token"], ENT_QUOTES, "UTF-8"); ?>">
                     <div class="widget clearfix">
 
                         <div class="widget-body">
@@ -205,10 +250,5 @@ else{
 </body>
 
 </html>
-<!--  Author Name: Matiur Rahaman.
-                        GitHub link: https://github.com/matiur25580
-<?php
-}
-?>
 <!--  Author Name: Matiur Rahaman.
 GitHub link: https://github.com/matiur25580
