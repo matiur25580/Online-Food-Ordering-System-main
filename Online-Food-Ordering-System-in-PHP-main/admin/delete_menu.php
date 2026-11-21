@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/auth_guard.php'; ?>
 <?php
 include("../connection/connect.php");
 error_reporting(0);
