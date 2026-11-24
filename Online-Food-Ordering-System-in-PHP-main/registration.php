@@ -7,6 +7,7 @@
 session_start(); 
 error_reporting(0); 
 include("connection/connect.php"); 
+// Registration validates submitted identity details, checks uniqueness, and stores only a password hash.
 if (isset($_POST['submit'])) {
     $username = trim($_POST['username'] ?? '');
     $firstName = trim($_POST['firstname'] ?? '');
