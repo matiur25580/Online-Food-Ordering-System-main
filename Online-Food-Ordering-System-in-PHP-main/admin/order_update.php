@@ -14,6 +14,7 @@ if (!$formId) {
     exit('Invalid order identifier.');
 }
 
+// Admin order changes require CSRF validation and update the status plus its remark in one transaction.
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     admin_require_csrf_post();
     $status = $_POST['status'] ?? '';
