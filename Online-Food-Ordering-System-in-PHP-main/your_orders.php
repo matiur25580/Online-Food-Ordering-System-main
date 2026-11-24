@@ -12,6 +12,9 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
+$orderCancelNotice = $_SESSION['order_cancel_notice'] ?? '';
+unset($_SESSION['order_cancel_notice']);
+
 if(empty($_SESSION['user_id']))  
 {
 	header('location:login.php');
@@ -213,6 +216,9 @@ td, th {
                         <div class="bg-gray">
                             <div class="row">
 
+                                <?php if ($orderCancelNotice !== ''): ?>
+                                    <div class="alert alert-info" role="status"><?php echo htmlspecialchars($orderCancelNotice, ENT_QUOTES, 'UTF-8'); ?></div>
+                                <?php endif; ?>
                                 <table class="table table-bordered table-hover">
                                     <thead style="background: #404040; color:white;">
                                         <tr>

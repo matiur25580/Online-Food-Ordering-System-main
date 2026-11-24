@@ -28,7 +28,11 @@ if (!is_string($orderId) || !ctype_digit($orderId) || (int) $orderId < 1) {
     exit('Invalid order reference.');
 }
 
-$stmt = mysqli_prepare($db, 'DELETE FROM users_orders WHERE o_id = ? AND u_id = ?');
+// Preserve order history and allow cancellation only before restaurant processing starts.
+$stmt = mysqli_prepare(
+    $db,
+    "UPDATE users_orders SET status = 'rejected' WHERE o_id = ? AND u_id = ? AND (status IS NULL OR status = '' OR status = 'pending')"
+);
 if (!$stmt) {
     error_log('Unable to prepare customer order cancellation: ' . mysqli_error($db));
     http_response_code(500);
@@ -45,6 +49,12 @@ if (!mysqli_stmt_execute($stmt)) {
     exit('Unable to cancel this order right now.');
 }
 
+$affectedRows = mysqli_stmt_affected_rows($stmt);
 mysqli_stmt_close($stmt);
+if ($affectedRows === 1) {
+    $_SESSION['order_cancel_notice'] = 'Your cancellation was recorded. The order remains in your history.';
+} else {
+    $_SESSION['order_cancel_notice'] = 'This order is no longer available for cancellation.';
+}
 header('Location: your_orders.php');
 exit;
