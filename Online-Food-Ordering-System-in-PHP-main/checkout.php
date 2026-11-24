@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         exit("Your cart is empty.");
     }
 
+    // Re-read dish prices from the database and save every order row as one all-or-nothing checkout.
     mysqli_begin_transaction($db);
     $dishQuery = mysqli_prepare($db, "SELECT title, price FROM dishes WHERE d_id = ?");
     $orderInsert = mysqli_prepare($db, "INSERT INTO users_orders (u_id, title, quantity, price) VALUES (?, ?, ?, ?)");
