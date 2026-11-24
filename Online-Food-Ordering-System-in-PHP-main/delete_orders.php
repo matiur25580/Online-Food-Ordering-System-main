@@ -51,7 +51,9 @@ if (!mysqli_stmt_execute($stmt)) {
 
 $affectedRows = mysqli_stmt_affected_rows($stmt);
 mysqli_stmt_close($stmt);
-if ($affectedRows !== 1) {
+if ($affectedRows === 1) {
+    $_SESSION['order_cancel_notice'] = 'Your cancellation was recorded. The order remains in your history.';
+} else {
     $_SESSION['order_cancel_notice'] = 'This order is no longer available for cancellation.';
 }
 header('Location: your_orders.php');
